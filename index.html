@@ -43,7 +43,7 @@
 
     <script>
         async function getWebLists() {
-            const request = await fetch('https://raw.githubusercontent.com/morcheysha77/StreamingWeb/master/web.txt?token=GHSAT0AAAAAACT6KGNRO7HNVTP32RNT3SDCZTXENPA');
+            const request = await fetch('https://raw.githubusercontent.com/StreamingWeb/StreamingWeb.github.io/main/web.txt');
             const textList = await request.text();
             return textList.split('\n');
         }
