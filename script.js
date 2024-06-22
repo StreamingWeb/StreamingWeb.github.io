@@ -1,10 +1,11 @@
 // URL du fichier raw sur GitHub
 const baseUrl = window.location.href.split('/').slice(0, -1).join('/') + '/ressources/';
 const sites = [
-    { url: 'showboxmovies.net', flags: [] },
-    { url: 'sflix.se', flags: [] },
-    { url: 'bflixhd.to', flags: [] },
-    { url: 'flixflare.to', flags: [] },
+    { url: 'cinehub.wf', flags: ['movie', 'serie', '360p', '720p', '1080p'] },
+    { url: 'showboxmovies.net', flags: ['movie', 'serie', '360p', '720p', '1080p'] },
+    { url: 'sflix.se', flags: ['movie', 'serie', '360p', '720p', '1080p'] },
+    { url: 'bflixhd.to', flags: ['movie', 'serie', '360p', '720p', '1080p'] },
+    { url: 'flixflare.to', flags: ['movie', 'serie', '360p', '720p', '1080p'] },
     { url: 'swatchseries.is', flags: [] },
     { url: 'fmovies.to', flags: [] },
     { url: 'filmoflix.to', flags: [] },
@@ -12,7 +13,7 @@ const sites = [
     { url: 'favmovies.to', flags: [] },
     { url: 'yeahmovies.to', flags: [] },
     { url: 'soap2dayx2.to', flags: [] },
-    { url: 'watchseriesx.to', flags: [] },
+    { url: 'watchseriesx.to', flags: ['movie', 'serie', '360p', '720p', '1080p'] },
     { url: 'sflix.to', flags: [] },
     { url: 'seriestreaming.in', flags: [] },
     { url: 'watch4freemovies.com', flags: [] },
@@ -25,7 +26,6 @@ const sites = [
     { url: 'soap2day.pe', flags: [] },
     { url: '123series.bz', flags: [] },
     { url: 'soap2day.tf', flags: [] },
-    { url: 'cinehub.wf', flags: [] },
     { url: 'ymovies.cc', flags: [] },
     { url: 'xmovies.ws', flags: [] },
     { url: 'watchseries.im', flags: [] },
@@ -39,7 +39,9 @@ const sites = [
     { url: 'upmovies.net', flags: [] },
     { url: '1movieshd.cc', flags: [] },
     { url: '1hd.to', flags: [] },
-    { url: '1flix.to', flags: [] }
+    { url: '1flix.to', flags: [] },
+    { url: '123-movies.vc', flags: ['movie', 'serie', '360p', '720p', '1080p'] },
+    { url: '123moviestv.net', flags: [] }
 ];
 
 let currentIndex = 0;
