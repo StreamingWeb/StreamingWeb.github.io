@@ -1,67 +1,34 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Liste de sites de streaming</title>
-    <style>
-        body {
-            background-color: #f0f0f0; /* Couleur de fond plus douce */
-            font-family: Arial, sans-serif; /* Police plus moderne */
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        ul {
-            list-style-type: none; /* Retire les puces */
-            padding: 0;
-        }
-        li {
-            background-color: #fff; /* Fond blanc pour chaque élément */
-            margin: 10px auto; /* Centrer les éléments */
-            padding: 20px;
-            border-radius: 0px; /* Bordures arrondies */
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Ombre subtile */
-            display: flex;
-            align-items: center; /* Centrer les éléments verticalement */
-            max-width: 600px; /* Largeur maximale */
-        }
-        a {
-            text-decoration: none; /* Retire le soulignement */
-            color: #007bff; /* Couleur bleue pour les liens */
-            display: flex;
-            align-items: center;
-        }
-        img {
-            margin-right: 20px; /* Espacement entre l'iframe et le texte */
-            border-radius: 50%; /* Rend les images rondes */
-        }
-    </style>
+    <meta charset="UTF-8">
+    <title>Site Navigateur</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Liste de sites de streaming</h1>
-    <ul id="sitesList"></ul>
+    <div id="displayArea"></div>
+    <button id="playButton" class="play">
+        <svg class="play-normal" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24">
+            <path fill="#ffdd00" fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2m3 10a1 1 0 0 1-.5.866l-3 1.732a1 1 0 0 1-1.5-.866v-3.464a1 1 0 0 1 1.5-.866l3 1.732A1 1 0 0 1 15 12" clip-rule="evenodd"/>
+        </svg>
+        <svg class="play-hover" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24">
+            <g fill="none" stroke="#ffdd00" stroke-linejoin="round" stroke-width="2">
+                <circle cx="12" cy="12" r="9" stroke-linecap="round"/><path d="m14 12l-3 1.732v-3.464z"/>
+            </g>
+        </svg>
+    </button>
 
-    <script>
-        async function getWebLists() {
-            const request = await fetch('https://raw.githubusercontent.com/StreamingWeb/StreamingWeb.github.io/main/web.txt');
-            const textList = await request.text();
-            return textList.split('\n');
-        }
-
-        async function displaySites() {
-            const sitesList = await getWebLists();
-            const listElement = document.getElementById('sitesList');
-
-            for (const siteUrl of sitesList) {
-                if (!siteUrl) continue;
-                const listItem = document.createElement('li');
-                const name = siteUrl.split('/')[2];
-                listItem.innerHTML = `<a href="${siteUrl}" target="_blank"><img src="https://www.google.com/s2/favicons?sz=64&domain_url=${siteUrl}" alt="Icon" width="50"><h2>${name}</h2></a>`;
-                listElement.appendChild(listItem);
-            }
-        }
-
-        displaySites();
-    </script>
+    <button id="prevButton" class="navigationButton">
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="128" viewBox="0 0 12 24" transform="rotate(-180 0 0)">
+            <path fill="#ffdd00" fill-rule="evenodd" d="M10.157 12.711L4.5 18.368l-1.414-1.414l4.95-4.95l-4.95-4.95L4.5 5.64l5.657 5.657a1 1 0 0 1 0 1.414"/>
+        </svg>
+    </button> <!-- Flèche gauche -->
+    <button id="nextButton" class="navigationButton">
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="128" viewBox="0 0 12 24">
+            <path fill="#ffdd00" fill-rule="evenodd" d="M10.157 12.711L4.5 18.368l-1.414-1.414l4.95-4.95l-4.95-4.95L4.5 5.64l5.657 5.657a1 1 0 0 1 0 1.414"/>
+        </svg>
+    </button> <!-- Flèche droite -->
+    
+    <script src="script.js"></script>
 </body>
 </html>
