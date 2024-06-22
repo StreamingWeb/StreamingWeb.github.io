@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Liste de sites de streaming</title>
+    <style>
+        body {
+            background-color: #f0f0f0; /* Couleur de fond plus douce */
+            font-family: Arial, sans-serif; /* Police plus moderne */
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        ul {
+            list-style-type: none; /* Retire les puces */
+            padding: 0;
+        }
+        li {
+            background-color: #fff; /* Fond blanc pour chaque élément */
+            margin: 10px auto; /* Centrer les éléments */
+            padding: 20px;
+            border-radius: 0px; /* Bordures arrondies */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Ombre subtile */
+            display: flex;
+            align-items: center; /* Centrer les éléments verticalement */
+            max-width: 600px; /* Largeur maximale */
+        }
+        a {
+            text-decoration: none; /* Retire le soulignement */
+            color: #007bff; /* Couleur bleue pour les liens */
+            display: flex;
+            align-items: center;
+        }
+        img {
+            margin-right: 20px; /* Espacement entre l'iframe et le texte */
+            border-radius: 50%; /* Rend les images rondes */
+        }
+    </style>
+</head>
+<body>
+    <h1>Liste de sites de streaming</h1>
+    <ul id="sitesList"></ul>
+
+    <script>
+        async function getWebLists() {
+            const request = await fetch('https://raw.githubusercontent.com/morcheysha77/StreamingWeb/master/web.txt?token=GHSAT0AAAAAACT6KGNRO7HNVTP32RNT3SDCZTXENPA');
+            const textList = await request.text();
+            return textList.split('\n');
+        }
+
+        async function displaySites() {
+            const sitesList = await getWebLists();
+            const listElement = document.getElementById('sitesList');
+
+            for (const siteUrl of sitesList) {
+                if (!siteUrl) continue;
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<a href="${siteUrl}" target="_blank"><img src="https://www.google.com/s2/favicons?sz=64&domain_url=${siteUrl}" alt="Icon" width="50"><h2>${siteUrl}</h2></a>`;
+                listElement.appendChild(listItem);
+            }
+        }
+
+        displaySites();
+    </script>
+</body>
+</html>
