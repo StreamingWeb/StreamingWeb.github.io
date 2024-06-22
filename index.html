@@ -55,7 +55,7 @@
             for (const siteUrl of sitesList) {
                 if (!siteUrl) continue;
                 const listItem = document.createElement('li');
-                const name = siteUrl.split('/')[1];
+                const name = siteUrl.split('/')[2];
                 listItem.innerHTML = `<a href="${siteUrl}" target="_blank"><img src="https://www.google.com/s2/favicons?sz=64&domain_url=${siteUrl}" alt="Icon" width="50"><h2>${name}</h2></a>`;
                 listElement.appendChild(listItem);
             }
