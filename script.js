@@ -48,8 +48,6 @@ let flags = window.location.href.split('?').length > 1 ? window.location.href.sp
 
 let sites = allSites.filter(site => flags.every(flag => site.flags.includes(flag)));
 
-console.log(sites);
-
 function updateSite() {
 
     let noneDisplay = [];
